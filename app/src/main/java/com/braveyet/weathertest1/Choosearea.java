@@ -94,7 +94,7 @@ public class Choosearea extends Fragment {
                 }else if(currentLevel==LEVEL_COUNTY){
                     selectedCounty=countyList.get(position);
                     Intent intent=new Intent(getActivity(),WeatherActivity.class);
-//                    Log.d("mytest",selectedCounty.getWeatherId()+"intent");
+                    Log.d("mytest",selectedCounty.getWeatherId()+"intent");
                     intent.putExtra("weather_id",selectedCounty.getWeatherId());
                     startActivity(intent);
                 }
@@ -136,6 +136,7 @@ public class Choosearea extends Fragment {
             for (County county:countyList){
                 dataList.add(county.getCountyName());
             }
+            Log.d("mytest",dataList.toString());
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
             currentLevel=LEVEL_COUNTY;

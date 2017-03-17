@@ -37,13 +37,15 @@ public class County extends DataSupport {
         return cityCode;
     }
 
+    public String getCountyCode() {
+        return countyCode;
+    }
+
     public int getId() {
         return id;
     }
 
-    public String getCountyCode() {
-        return countyCode;
-    }
+
 
     public String getCountyName() {
         return countyName;

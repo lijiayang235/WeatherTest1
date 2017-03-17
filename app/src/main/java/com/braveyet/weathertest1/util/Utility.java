@@ -70,6 +70,7 @@ public class Utility {
                     county.setCityCode(cityCode);
                     county.setCountyCode(jsonObject.getString("id"));
                     county.setCountyName(jsonObject.getString("name"));
+                    county.setWeatherId(jsonObject.getString("weather_id"));
                     county.save();
                 }
                 return true;

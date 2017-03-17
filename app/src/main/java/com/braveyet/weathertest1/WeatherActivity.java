@@ -61,7 +61,7 @@ public class WeatherActivity extends AppCompatActivity {
             Weather weather= Utility.handleWeather(responseText);
             Log.d("mytest",weather.basic.cityName+"cityName");
             mWeatherId=weather.basic.weatherId;
-           // showWeatherInfo(weather);
+            showWeatherInfo(weather);
         }else{
             mWeatherId=getIntent().getStringExtra("weather_id");
             Log.d("mytest",mWeatherId+"buweikong");
@@ -95,7 +95,7 @@ public class WeatherActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
                             editor.putString("weather",responseText);
                             editor.apply();
-//                            showWeatherInfo(weather);
+                            showWeatherInfo(weather);
                         }else {
                             Toast.makeText(WeatherActivity.this,"天气不存在，获取天气信息失败",Toast.LENGTH_SHORT).show();
                         }
@@ -118,7 +118,7 @@ public class WeatherActivity extends AppCompatActivity {
         nowTemp.setText(degree);
         forecastLayout.removeAllViews();
         for(Forecast forecast:weather.forecastList) {
-            View view = LayoutInflater.from(this).inflate(R.layout.forecast_item, forecastLayout, false);
+            View view = LayoutInflater.from(WeatherActivity.this).inflate(R.layout.forecast_item, forecastLayout, false);
             TextView dateText = (TextView) view.findViewById(R.id.forecast_time);
             TextView infoText = (TextView) view.findViewById(R.id.forecast_info);
             TextView maxText = (TextView) view.findViewById(R.id.max_info);

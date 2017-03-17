@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_gravity="right"
         android:id="@+id/now_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,6 +14,7 @@
         android:textSize="60sp" />
 
     <TextView
+        android:layout_gravity="right"
         android:id="@+id/now_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
