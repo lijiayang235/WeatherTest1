@@ -93,10 +93,20 @@ public class Choosearea extends Fragment {
                     queryCounties();
                 }else if(currentLevel==LEVEL_COUNTY){
                     selectedCounty=countyList.get(position);
+
+                    if(getActivity() instanceof MainActivity){
                     Intent intent=new Intent(getActivity(),WeatherActivity.class);
-                    Log.d("mytest",selectedCounty.getWeatherId()+"intent");
                     intent.putExtra("weather_id",selectedCounty.getWeatherId());
                     startActivity(intent);
+                        getActivity().finish();
+                    }else if(getActivity() instanceof WeatherActivity){
+                        WeatherActivity weatherActivity= (WeatherActivity) getActivity();
+
+                        weatherActivity.drawerLayout.closeDrawers();
+                        weatherActivity.swipeRefresh.setRefreshing(true);
+                        weatherActivity.requestWeatherInfo(selectedCounty.getWeatherId());
+
+                    }
                 }
             }
         });
